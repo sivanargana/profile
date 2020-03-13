@@ -1,5 +1,12 @@
 
 
+$headerHeight:60px;
+$toolbarHeight:70px;
+$sidebarWidth:100px;
+$workspaceGutter:30px;
+
+
+
 
 $header:#21e6c1;
 $sidebar:#364f6b;
@@ -7,11 +14,17 @@ $body:darken(#f0f0f0,3%);
 // ++++++++++++++++++++++++++
 
 $primary:$header;
+$dark:$sidebar;
 $border:#e5e5e5;
 $btn-padding-x:25px;
 $btn-font-weight:500;
 $btn-border-radius:20px;
 $list-group-border-color:$border;
+
+$dropdown-border-radius:0px;
+$dropdown-font-size:inherit;
+
+
 @import "~bootstrap/scss/bootstrap.scss";
 
 
@@ -19,14 +32,15 @@ $list-group-border-color:$border;
 
 body{
     background: $body;
-    font-family:'Roboto', sans-serif;
+    font-family:'Inter', sans-serif;
     font-size: 13px;
     color: #676767;
+    overflow-y: scroll;
 }
 
 .header{
     background:$header;
-    height: 60px;
+    height: $headerHeight;
     width: 100%;
     position: fixed;
     padding: 0px 20px;
@@ -40,15 +54,15 @@ body{
 .sidebar{
     background: $sidebar;
     height: 100%;
-    width: 100px;
+    width: $sidebarWidth;
     position: fixed;
     left: 0px;
     top:0px;
     z-index: 0;
-    padding-top: 60px + 20px;
+    padding-top: $headerHeight + 20px;
     a{
         display: block;
-        padding: 20px;
+        padding: 20px 10px;
         text-align: center;
         i{
             font-size: 30px;
@@ -59,7 +73,7 @@ body{
             display: block;
             color: lighten($sidebar,25%);
             font-weight: normal;
-            font-size: 12px;
+           
            
         }
         &:hover{
@@ -83,53 +97,61 @@ body{
     }
 }
 .body{
-    padding: 30px;
-    padding-left: 100px + 30px;
-    padding-top: 60px + 30px;
+    padding-left: $sidebarWidth + $workspaceGutter;
+    padding-right:  $workspaceGutter;
+    padding-top: $headerHeight;
 }
-.page-head{
+.toolbar{
     background: white;
-    padding: 10px 30px;
-    margin: -30px;
-    margin-bottom: 30px;
+    padding: 0px 30px;
+    margin-left: - $workspaceGutter;
+    margin-right: - $workspaceGutter;
+    height: $toolbarHeight;
+    margin-bottom: $workspaceGutter;
+}
+
+.workspace{
+    background: white;
+    max-width: 800px;
+    margin: 0px auto;
+    min-height: calc(100vh - (#{$headerHeight} + #{$toolbarHeight} + #{$workspaceGutter}));
+    &.wide{
+        max-width: 100%;
+    }
+}
+.loader{
+    background: white;
+    height: calc(100vh - (#{$headerHeight} + #{$toolbarHeight} + #{$workspaceGutter})); 
 }
 
 .whiteblock{
-    $self:&;
+
 background: white;
-padding: 20px;
-margin-bottom: 10px;
+padding:20px 30px;
 position: relative;
-// overflow: hidden;
-// #{$self}__actions{
-//     position: absolute;
-//     left: 0px;
-//     top: 0px;
-//     height:100%;
-//     width: 100%;
-//     background: darken(white,3%);
-//     cursor: pointer;
-//     visibility: hidden;
-//     opacity: 0;
-//     transition: all .3s ease;
-//     transform: scale(1.5);
-//     z-index: 5;
-//     #{$self}__holder{
+border-bottom: 1px solid $border;
+&:hover{
+    background: darken(white,2.8%);
+}
+}
 
-//         position: absolute;
-//         left: 50%;
-//         top: 50%;
-//        transform: translate(-50%,-50%);
-
-//     }
-// }
-// &:hover{
-//     #{$self}__actions{
-//         transform: scale(1);
-//     visibility: visible;
-//     opacity: 1;
-//     }
-// }
+.chip{
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+    vertical-align: top;
+    background-color: #ccc;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: inset 0px 0px 0px 1px rgba(black,.2);
+    &-flat{
+        border-radius: 0px;
+        background-size: contain;
+        background-color: transparent;
+        box-shadow: none;
+    }
 }
 
 .gutters-5{
@@ -142,29 +164,6 @@ position: relative;
 }
 
 
-.ag-theme-balham{
-    .ag-root{
-        border-color: $border;
-        .ag-header{
-            background: darken(white,2.8%);
-            border-bottom-color:  $border;
-        }
-        .ag-header-cell{
-            &:after{
-                display: none;
-            }
-        }
-        .ag-header-cell-label{
-            font-weight: bold;
-        }
-        .ag-cell{
-            display: flex;
-            align-items: center;
-        }
-    }
-}
-
-.holder{
-    max-width: 800px;
-    margin: 0px auto;
-}
+// *{
+//     box-shadow: 0px 0px 0px 1px red;
+// }

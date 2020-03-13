@@ -1,6 +1,11 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, NavLink, Switch } from "react-router-dom";
 import Skills from './main/Skills';
+import Dashboard from './main/Dashboard';
+import Experience from './main/Experience';
+import Services from './main/Services';
+import Awards from './main/Awards';
+import Projects from './main/Projects';
 export class App extends Component {
   render() {
     return (
@@ -36,12 +41,12 @@ export class App extends Component {
           </div>
           <div className="body">
             <Switch>
-              <Route path="/" exact>Dashboard</Route>
+              <Route path="/" exact><Dashboard /></Route>
               <Route path="/skills"><Skills /></Route>
-              <Route path="/experience">experience</Route>
-              <Route path="/services">services</Route>
-              <Route path="/awards">awards</Route>
-              <Route path="/projects">projects</Route>
+              <Route path="/experience"><Experience /></Route>
+              <Route path="/services"><Services /></Route>
+              <Route path="/awards"><Awards /></Route>
+              <Route path="/projects"><Projects /></Route>
             </Switch>
           </div>
         </Router>
