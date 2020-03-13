@@ -21,7 +21,12 @@ $btn-font-weight:500;
 $btn-border-radius:20px;
 $list-group-border-color:$border;
 
+$enable-shadows	:false ;
+
 $dropdown-border-radius:0px;
+$dropdown-border-color:$border;
+$dropdown-box-shadow:0px 1px 5px rgba(black,.1);
+$dropdown-item-padding-y:8px;
 $dropdown-font-size:inherit;
 
 
@@ -64,6 +69,7 @@ body{
         display: block;
         padding: 20px 10px;
         text-align: center;
+        text-decoration: none;
         i{
             font-size: 30px;
             color: lighten($sidebar,30%);
@@ -127,7 +133,7 @@ body{
 .whiteblock{
 
 background: white;
-padding:20px 30px;
+padding:20px 50px;
 position: relative;
 border-bottom: 1px solid $border;
 &:hover{
@@ -136,21 +142,27 @@ border-bottom: 1px solid $border;
 }
 
 .chip{
-    display: inline-block;
+    display: inline-flex;
     height: 40px;
     width: 40px;
-    border-radius: 100%;
     vertical-align: top;
-    background-color: #ccc;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    box-shadow: inset 0px 0px 0px 1px rgba(black,.2);
-    &-flat{
-        border-radius: 0px;
+    align-items: center;
+    justify-content: center;
+
+    img{
+        height:0px;
+        width: 0px;
+        visibility: hidden;
+    }
+
+
+    &__holder{
+        height:100%;
+        width:100%;
         background-size: contain;
         background-color: transparent;
-        box-shadow: none;
+        background-position: center;
+        background-repeat: no-repeat;
     }
 }
 
@@ -162,6 +174,7 @@ border-bottom: 1px solid $border;
         padding-right: 5px;
     }
 }
+
 
 
 // *{

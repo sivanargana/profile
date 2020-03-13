@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Dropdown,Spinner } from 'react-bootstrap'
 import Ellipsis from './Ellipsis';
 import axios from 'axios'
+import Chip from './Chip';
 export class Awards extends Component {
     state = {
         awards: [],
@@ -33,14 +34,14 @@ export class Awards extends Component {
                     </div>
                 </div>
                 <div className="workspace">
-                {(loader) ? <div className="d-flex justify-content-center align-items-center loader"><Spinner animation="border" /></div> :
+                {(loader) ? <div className="d-flex justify-content-center align-items-center loader"><Spinner animation="grow" variant="primary" /></div> :
                 <div className="row gutters-5">
                         {awards.map((item, i) =>
                             <div className="col-xl-12" key={i}>
                                 <div className="whiteblock">
                                     <div className="row align-items-center">
                                         <div className="col-md-auto text-center text-md-left mb-3 mb-md-0">
-                                            <div className="chip chip-flat" style={{ backgroundImage: `url('${item.icon}')` }}></div>
+                                           <Chip value={item.icon} />
                                         </div>
                                         <div className="col-md">
                                             <div className="row align-items-center gutters-5">

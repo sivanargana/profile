@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Dropdown,Spinner } from 'react-bootstrap'
 import Ellipsis from './Ellipsis';
 import axios from 'axios'
+import Chip from './Chip';
 export class Projects extends Component {
     state = {
         projects: [],
@@ -33,13 +34,13 @@ export class Projects extends Component {
                     </div>
                 </div>
                 <div className="workspace">
-                {(loader) ? <div className="d-flex justify-content-center align-items-center loader"><Spinner animation="border" /></div> :<div className="row gutters-5">
+                {(loader) ? <div className="d-flex justify-content-center align-items-center loader"><Spinner animation="grow" variant="primary" /></div> :<div className="row gutters-5">
                         {projects.map((item, i) =>
                             <div className="col-xl-12" key={i}>
                                 <div className="whiteblock">
                                     <div className="row align-items-center">
                                         <div className="col-md-auto text-center text-md-left mb-3 mb-md-0">
-                                            <div className="chip chip-flat" style={{ backgroundImage: `url('${item.img}')` }}></div>
+                                        <Chip value={item.img} />
                                         </div>
                                         <div className="col-md">
                                             <div className="row align-items-center gutters-5">
@@ -50,7 +51,7 @@ export class Projects extends Component {
                                         <div className="col-md">
                                             <div className="row align-items-center gutters-5">
                                                 <div className="col-md-12 col text-right text-md-left"><div className="text-black-50">Link</div></div>
-                                                <div className="col-md-12 col"><div className="text-lowercase">{item.link}</div></div>
+                                                <div className="col-md-12 col"><div className="text-lowercase small">{item.link}</div></div>
                                             </div>
                                         </div>                                    
 
