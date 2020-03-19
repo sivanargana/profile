@@ -1,32 +1,32 @@
 import React, { Component } from 'react';
 import { Spring } from 'react-spring/renderprops';
-export  class Icon extends Component {
+export class Icon extends Component {
     render() {
         return (
             <div className="col-md text-center text-md-left mb-3 mb-md-0">
-          {this.props.children}
-        </div>
+                {this.props.children}
+            </div>
         )
     }
 }
-export  class Actions extends Component {
+export class Actions extends Component {
     render() {
         return (
             <div className="col-md-auto text-center text-md-left mt-3 mt-md-0">
-          {this.props.children}
-        </div>
+                {this.props.children}
+            </div>
         )
     }
 }
-export  class Item extends Component {
+export class Item extends Component {
     render() {
         return (
             <div className="col-md">
-            <div className="row align-items-center gutters-5">
-        <div className="col-md-12 col text-right text-md-left"><div className="text-black-50">{this.props.label || 'Label Name'}</div></div>
-                <div className="col-md-12 col"><div className="font-weight-bold text-capitalize">{this.props.children}</div></div>
+                <div className="row align-items-center gutters-5">
+                    <div className="col-md-12 col text-right text-md-left"><div className="text-black-50">{this.props.label || 'Label Name'}</div></div>
+                    <div className="col-md-12 col"><div className="font-weight-bold text-capitalize">{this.props.children}</div></div>
+                </div>
             </div>
-        </div>
         )
     }
 }
@@ -46,16 +46,16 @@ export class Toolbar extends Component {
     render() {
         return (
             <div className="toolbar">
-                    <div className="row align-items-center h-100">
-                        <div className="col">
-                            <div className="h5 m-0">{this.props.title || 'Title Comes Here'}</div>
-                            <div className="text-black-50">{this.props.subTitle || 'Sub Title Comes Here'}</div>
-                        </div>
-                        <div className="col-auto">
-                            {this.props.children}
-                        </div>
+                <div className="row align-items-center h-100">
+                    <div className="col">
+                        <div className="h5 m-0">{this.props.title || 'Title Comes Here'}</div>
+                        <div className="text-black-50">{this.props.subTitle || 'Sub Title Comes Here'}</div>
+                    </div>
+                    <div className="col-auto">
+                        {this.props.children}
                     </div>
                 </div>
+            </div>
         )
     }
 }
@@ -63,10 +63,10 @@ export class Toolbar extends Component {
 
 
 export class Loader extends Component {
-  
+
     render() {
         return (
-        (this.props.loaded) ? <div className="d-flex justify-content-center align-items-center loader">{this.props.children[0]}</div> : this.props.children[1]
+            (this.props.loaded) ? <div className="d-flex justify-content-center align-items-center loader">{this.props.children[0]}</div> : this.props.children[1]
         )
     }
 }
@@ -90,11 +90,11 @@ export class Chip extends Component {
 }
 
 export const Ellipsis = React.forwardRef(({ children, onClick }, ref) => (
-    <span style={{cursor:'pointer'}} ref={ref} onClick={e => { e.preventDefault(); onClick(e); }}><i className="las la-ellipsis-h la-2x"></i></span>
+    <span style={{ cursor: 'pointer' }} ref={ref} onClick={e => { e.preventDefault(); onClick(e); }}><i className="las la-ellipsis-h la-2x"></i></span>
 ));
 
-export const Workspace = (props) =>{
-return(<div className="workspace">{props.children}</div>)
+export const Workspace = (props) => {
+    return (<div className="workspace">{props.children}</div>)
 }
 
 

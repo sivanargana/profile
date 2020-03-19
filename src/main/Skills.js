@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import {Dropdown, Button, Spinner } from 'react-bootstrap';
 import {Workspace, Whiteblock,Toolbar,Loader,Chip,Ellipsis} from '../components/components';
+import Upload from './Upload';
 export class Skills extends Component {
     state = {
         skills: [],
@@ -20,17 +21,26 @@ export class Skills extends Component {
             }
         })
     }
+    upload = (e) =>{
+        
+
+        axios.post('upload',e).then(res => {
+            console.log(res)
+        })
+
+    }
     render() {
         const { skills, loader } = this.state
         return (
             <div>
               <Toolbar title="Skills" subTitle="You can Create,Update,Delete">
-                <Button onClick={() => this.modalToggle(true, 'create')}>Add New</Button>
+                <Button>Add New</Button>
               </Toolbar>
                 <Workspace>
                     <Loader loaded={loader}>
                         <Spinner animation="grow" variant="primary" />
                         <React.Fragment>
+                            <Upload upload={this.upload} />
                         {skills.map((item, i) =>
                                 <Whiteblock key={i}>
                                     <Whiteblock.Icon><Chip value={item.icon}><Spinner animation="grow" variant="primary" size="sm" /></Chip></Whiteblock.Icon>
